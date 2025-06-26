@@ -1,0 +1,344 @@
+html, body {
+    margin: 0;
+    font-family:'montserrat', sans-serif;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    overflow-x: hidden;
+};
+body{
+    height: 100%;
+    min-height: auto;
+}
+.header-principal {
+    background-color: #685752;
+    padding: 20px;
+    font-size: 22px;
+    height: 62px;
+}
+img {
+    width: 200px;
+}
+div div {
+    padding: 0;
+    text-align: center;
+    margin: 50px auto;
+    max-width: 800px;
+}
+h1 { 
+    font-size: 50px;
+}
+   header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+   }
+   nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+   }
+   nav:first-of-type {
+      margin-right: auto;
+   }
+
+   .header-principal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+   }
+
+   .link-navegacion {
+    color: #eaeaea;
+    text-decoration: none;
+    display: block;
+   }
+
+   .banner-principal_boton {
+    width: fit-content;
+    background-color:#685752;
+    color:rgb(214, 214, 214);
+    padding: 15px 30px;
+    border-radius:30px;
+    font-size: 100x;
+   }
+   .seccion-informativa {
+    display: block;
+    padding: 10px 20px;
+    text-align: center;
+   }
+   .seccion-informativa-parrafo {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.5;
+    font-size: 20px;
+   }
+   .footer-pagina {
+    min-height: 22vh;
+    background-color: #685752;
+    color: rgb(214, 214, 214);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+   }
+   .suscripcion-pre-titulo {
+    font-size: 30px;
+    text-align: start;
+   }
+   .pie-pagina-menu {
+    display: flex;
+    flex-direction:row ;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    gap: 20px;
+    width:100%;
+
+   }
+   .pie-pagina_link {
+    text-decoration:none;
+    color: black;
+   }
+   .logo1 {
+    width: 200px;
+    height: 200px;
+   }
+   .logo-container {
+    display: flex;
+    flex-direction: row;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px;
+    background-color: #685752;
+   }
+  .link-navegacion {
+    color:rgb(214, 214, 214);
+    font-weight: 600;
+    transition: 0.3s ease;
+    padding: 5px;
+  }
+  .link-navegacion:hover{
+    color:gray
+  }
+  .facebook, .instagram {
+    height: 200px;
+    width: 200px;
+  }
+  .img_facebook {
+    width: 83px;
+    height: 83px;
+    object-fit: contain;
+  }
+  .img_instagram {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+  }
+  .recomendaciones_día {
+    margin-top: 50px;
+    font-size: 20px;
+    gap: 20px;
+    font-size: Inter;
+    color: #2C3E50 ;
+    text-align: center;
+    
+  }
+  .contacto {
+  background-color: rgb(255, 255, 255);;
+  padding: 60px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.contacto-contenedor {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contacto h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.contacto p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.formulario-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.formulario-contacto button {
+  background-color:#685752 ;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.formulario-contacto button:hover {
+  background-color: #2d3c67;
+}
+
+.info-contacto {
+  margin-top: 40px;
+  font-size: 15px;
+  color: black;
+}
+
+.info-contacto .redes a {
+  display: inline-block;
+  margin: 10px 10px 0 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.info-contacto .redes a:hover {
+  text-decoration: underline;
+}
+.servicios {
+  padding: 60px 20px;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.servicios h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color:black;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.contenedor-servicios {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.servicio {
+  background-color: #685752;
+  padding: 20px;
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s;
+}
+
+.servicio:hover {
+  transform: translateY(-5px);
+}
+
+.servicio h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.servicio p {
+  font-size: 1rem;
+  color: black;
+  line-height: 1.5;
+}
+.ayuda {
+  padding: 60px 20px;
+  background-color: rgb(255, 255, 255);;
+  text-align: center;
+  color:black;
+}
+
+.ayuda h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.ayuda-intro {
+  font-size: 1.1rem;
+  color: black;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.preguntas-frecuentes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.pregunta {
+  background-color: #685752;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  text-align: left;
+}
+
+.pregunta h3 {
+  font-size: 1.3rem;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.pregunta p {
+  font-size: 1rem;
+  color: black;
+  line-height: 1.6;
+}
+.seccion-video {
+  background-color:#685752;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.seccion-video h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: black;
+}
+
+.seccion-video p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: black;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.boton-video {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: cornflowerblue ;
+  color:black;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.boton-video:hover {
+  background-color: white;
+}
