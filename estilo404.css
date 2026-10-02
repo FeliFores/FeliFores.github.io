@@ -1,54 +1,129 @@
+/* =========================
+   RESET GENERAL
+========================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
+/* =========================
+   PÁGINA 404
+========================= */
+
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
+    min-height: 100vh;
+    padding: 20px;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+
+    background-color: #f8f9fa;
+    color: #2C3E50;
+
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
 }
 
+
+/* =========================
+   CONTENEDOR
+========================= */
+
 .contenedor {
+    width: 100%;
     max-width: 500px;
     padding: 40px;
-    background: white;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+
+    background-color: #ffffff;
+
     border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
+
+/* =========================
+   TEXTOS
+========================= */
+
 h1 {
+    margin-bottom: 10px;
+
+    color: #2C3E50;
     font-size: 8rem;
-    color: #d9534f;
+    line-height: 1;
 }
 
 h2 {
+    margin-bottom: 15px;
+
+    color: #2C3E50;
     font-size: 2rem;
-    margin-bottom: 10px;
 }
 
 p {
-    font-size: 1.1rem;
     margin-bottom: 30px;
-    color: #666;
+
+    color: #666666;
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
+
+
+/* =========================
+   BOTÓN
+========================= */
 
 .boton {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #0275d8;
-    color: white;
-    text-decoration: none;
+
+    padding: 12px 24px;
+
+    background-color: #2C3E50;
+    color: #ffffff;
+
     border-radius: 8px;
-    transition: background 0.3s;
+
+    text-decoration: none;
+    font-weight: 600;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
 }
 
 .boton:hover {
-    background-color: #025aa5;
+    background-color: #3c5268;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+    .contenedor {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 6rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .boton {
+        width: 100%;
+    }
 }

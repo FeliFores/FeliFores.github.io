@@ -1,24 +1,54 @@
+/* =========================
+   ESTILOS GENERALES
+========================= */
 
-html, body {
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    align-items: center;
-    width: 100%;
-    height: 100%;
     padding: 0;
+    width: 100%;
+    min-height: 100%;
     overflow-x: hidden;
 }
 
 body {
-    height: 100%;
-    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    color: #2C3E50;
 }
 
+main {
+    flex: 1;
+    width: 100%;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* =========================
+   HEADER Y NAVEGACIÓN
+========================= */
+
 .header-principal {
-    background-color: #2C3E50;
+    width: 100%;
+    min-height: 62px;
     padding: 20px;
-    font-size: 22px;
-    height: 62px;
+    background-color: #2C3E50;
 
     display: flex;
     justify-content: space-between;
@@ -26,164 +56,302 @@ body {
     gap: 10px;
 }
 
-
-nav {
+.header-principal nav {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     gap: 10px;
 }
 
-nav:first-of-type {
+.header-principal nav:first-of-type {
     margin-right: auto;
 }
 
 .link-navegacion {
-    color: rgb(214, 214, 214);
-    font-weight: 600;
-    text-decoration: none;
     display: block;
     padding: 5px;
-    transition: 0.3s ease;
+
+    color: #d6d6d6;
+    font-size: 22px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: color 0.3s ease;
 }
 
 .link-navegacion:hover {
-    color: gray;
+    color: #ffffff;
 }
 
-.banner-principal_boton {
-    width: fit-content;
-    background-color: #2C3E50;
-    color: rgb(214, 214, 214);
-    padding: 15px 30px;
-    border-radius: 30px;
-    font-size: 16px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 20px;
-}
+
+/* =========================
+   BANNER PRINCIPAL
+========================= */
 
 .banner-principal {
-    text-align: center;
     padding: 40px 20px;
+    text-align: center;
 }
 
 .logo1 {
     width: 200px;
     height: 200px;
     margin: 0 auto;
-    display: block;
+    object-fit: contain;
 }
 
 .baner-principal-titulo {
-    font-size: 50px;
     margin-top: 20px;
+    margin-bottom: 20px;
+
     color: #2C3E50;
+    font-size: 50px;
+}
+
+.banner-principal_boton {
+    display: inline-block;
+    width: fit-content;
+
+    margin-top: 20px;
+    padding: 15px 30px;
+
+    background-color: #2C3E50;
+    color: #d6d6d6;
+
+    border-radius: 30px;
+    font-size: 16px;
+    text-decoration: none;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.banner-principal_boton:hover {
+    background-color: #3c5268;
+    color: #ffffff;
+    transform: translateY(-2px);
 }
 
 .recomendaciones_día {
-    margin-top: 50px;
-    font-size: 20px;
-    font-family: 'Inter', sans-serif;
-    color: #2C3E50;
-    text-align: center;
     max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 50px auto 0;
+
+    color: #2C3E50;
+    font-size: 20px;
+    line-height: 1.6;
+    text-align: center;
 }
 
+
+/* =========================
+   NOVEDADES / LIBROS
+========================= */
+
 .seccion-informativa {
-    display: block;
-    padding: 10px 20px;
+    padding: 40px 20px;
     text-align: center;
+}
+
+.seccion-informativa h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+
+    color: #2C3E50;
+    font-size: 2.5rem;
 }
 
 .logo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 5px;
+    align-items: stretch;
+    gap: 20px;
+
     background-color: #2C3E50;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+.libro-card {
+    flex: 1 1 250px;
+    max-width: 330px;
     padding: 20px;
-}
 
-.logo-container div {
-    flex: 1 1 150px;
-    margin: 5px;
-    text-align: center;
-}
-
-.logo-container img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.footer-pagina {
-    min-height: 22vh;
-    background-color: #2C3E50;
-    color: rgb(214, 214, 214);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    padding: 20px 10px;
-    text-align: center; 
+
+    background-color: #ffffff;
+    color: #2C3E50;
+
+    border-radius: 10px;
 }
 
-.footer-pagina p, 
-.footer-pagina ul {
-    width: 100%;
-    max-width: 1200px;
+.libro-titulo {
+    margin: 0 0 8px;
+    font-size: 1.3rem;
+}
+
+.libro-genero {
+    margin: 0 0 15px;
+    font-size: 1rem;
+}
+
+.libro-genero strong {
+    color: #a33131;
+}
+
+.libro-card a {
+    display: block;
+}
+
+.libro-card img {
+    width: 180px;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    transition: transform 0.3s ease;
+}
+
+.libro-card img:hover {
+    transform: scale(1.03);
+}
+
+.libro-descripcion {
+    margin: 15px 0 0;
+
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   SERVICIOS
+========================= */
+
+.servicios {
+    padding: 60px 20px;
+
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.servicios h2 {
+    margin-bottom: 40px;
+
+    color: #2C3E50;
+    font-size: 2.5rem;
+}
+
+.contenedor-servicios {
+    max-width: 1100px;
     margin: 0 auto;
-    text-align: center; 
-}
 
-.suscripcion-pre-titulo {
-    font-size: 30px;
-    text-align: center; 
-    width: 100%;
-    max-width: 1200px;
-    margin-bottom: 15px;
-}
-
-.pie-pagina-menu {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    list-style-type: none;
-    gap: 20px;
+    gap: 30px;
+}
+
+.servicio {
+    flex: 1 1 250px;
+    max-width: 300px;
+    padding: 25px;
+
+    background-color: #2C3E50;
+    color: #f5f5f5;
+
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.3s ease;
+}
+
+.servicio:hover {
+    transform: translateY(-5px);
+}
+
+.servicio h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+
+    font-size: 1.4rem;
+}
+
+.servicio p {
+    margin-bottom: 0;
+
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   VIDEO
+========================= */
+
+.seccion-video {
+    padding: 60px 20px;
+
+    background-color: #2C3E50;
+    color: #f5f5f5;
+
+    text-align: center;
+}
+
+.seccion-video h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+
+    font-size: 2.5rem;
+}
+
+.seccion-video p {
+    max-width: 700px;
+    margin: 0 auto 30px;
+
+    font-size: 1.2rem;
+}
+
+.video-container {
+    position: relative;
+
     width: 100%;
-    max-width: 1200px;
-    padding: 0;
-    margin: 10px auto 0 auto;
+    max-width: 900px;
+    margin: 20px auto;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.pie-pagina_link {
-    text-decoration: none;
-    color: black;
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+
+    border: 0;
 }
 
-.img_facebook {
-    width: 83px;
-    height: 83px;
-    object-fit: contain;
-}
 
-.img_instagram {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-}
+/* =========================
+   CONTACTO
+========================= */
 
 .contacto {
-    background-color: rgb(255, 255, 255);
     padding: 60px 20px;
-    font-family: 'Segoe UI', sans-serif;
-    color: black;
+
+    background-color: #ffffff;
+    color: #2C3E50;
+
     text-align: center;
 }
 
@@ -192,209 +360,440 @@ nav:first-of-type {
     margin: 0 auto;
 }
 
+.contacto h1,
 .contacto h2 {
-    font-size: 32px;
+    margin-top: 0;
     margin-bottom: 10px;
+
+    color: #2C3E50;
+}
+
+.contacto h1 {
+    font-size: 2.2rem;
+}
+
+.contacto h2 {
+    font-size: 2rem;
 }
 
 .contacto p {
-    font-size: 16px;
-    color: #555;
     margin-bottom: 30px;
+
+    color: #555555;
+    font-size: 16px;
+    line-height: 1.6;
 }
+
+
+/* Formulario */
 
 .formulario-contacto {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
+
+    text-align: left;
+}
+
+.formulario-contacto label {
+    margin-top: 5px;
+
+    color: #2C3E50;
+    font-size: 15px;
+    font-weight: 600;
 }
 
 .formulario-contacto input,
+.formulario-contacto select,
 .formulario-contacto textarea {
+    width: 100%;
     padding: 12px;
-    border: 1px solid #ccc;
+
+    border: 1px solid #cccccc;
     border-radius: 8px;
+
+    background-color: #ffffff;
+    color: #333333;
+
+    font-family: inherit;
     font-size: 15px;
+}
+
+.formulario-contacto textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto select:focus,
+.formulario-contacto textarea:focus {
+    outline: 2px solid #2C3E50;
+    outline-offset: 1px;
 }
 
 .formulario-contacto button {
-    background-color: #2C3E50;
-    color: #fff;
-    border: none;
+    margin-top: 8px;
     padding: 14px;
+
+    border: none;
     border-radius: 8px;
+
+    background-color: #2C3E50;
+    color: #ffffff;
+
+    font-family: inherit;
     font-size: 16px;
+    font-weight: 600;
+
     cursor: pointer;
-    transition: background-color 0.3s;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
 }
 
 .formulario-contacto button:hover {
-    background-color: #2d3c67;
+    background-color: #3c5268;
+    transform: translateY(-2px);
 }
+
+
+/* Información de contacto */
 
 .info-contacto {
     margin-top: 40px;
+
+    color: #2C3E50;
     font-size: 15px;
-    color: black;
 }
 
-.servicios {
-    padding: 60px 20px;
-    background-color: rgb(255, 255, 255);
-    text-align: center;
+.info-contacto p {
+    margin: 8px 0;
 }
 
-.servicios h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: black;
-    font-family: 'Segoe UI', sans-serif;
-}
 
-.contenedor-servicios {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-}
+/* Enlaces usados en confirmacion.php */
 
-.servicio {
+.contacto-contenedor > a {
+    display: inline-block;
+
+    margin-top: 10px;
+    padding: 12px 20px;
+
     background-color: #2C3E50;
-    padding: 20px;
-    max-width: 300px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.08);
-    transition: transform 0.3s;
-    color: black;
+    color: #ffffff;
+
+    border-radius: 8px;
+    text-decoration: none;
+
+    transition: background-color 0.3s ease;
 }
 
-.servicio:hover {
-    transform: translateY(-5px);
+.contacto-contenedor > a:hover {
+    background-color: #3c5268;
 }
 
-.servicio h3 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-}
 
-.servicio p {
-    font-size: 1rem;
-    line-height: 1.5;
-}
+/* =========================
+   CENTRO DE AYUDA
+========================= */
 
 .ayuda {
     padding: 60px 20px;
-    background-color: rgb(255, 255, 255);
+
+    background-color: #ffffff;
+    color: #2C3E50;
+
     text-align: center;
-    color: black;
 }
 
 .ayuda h2 {
-    font-size: 2.5rem;
+    margin-top: 0;
     margin-bottom: 10px;
-    font-family: 'Segoe UI', sans-serif;
+
+    font-size: 2.5rem;
 }
 
 .ayuda-intro {
-    font-size: 1.1rem;
-    color: black;
     max-width: 600px;
     margin: 0 auto 40px;
+
+    color: #2C3E50;
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
 .preguntas-frecuentes {
+    max-width: 1000px;
+    margin: 0 auto;
+
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
 }
 
 .pregunta {
+    padding: 25px;
+
     background-color: #2C3E50;
-    padding: 20px;
+    color: #f5f5f5;
+
     border-radius: 12px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+
     text-align: left;
-    color: black;
 }
 
 .pregunta h3 {
-    font-size: 1.3rem;
+    margin-top: 0;
     margin-bottom: 10px;
+
+    font-size: 1.3rem;
 }
 
 .pregunta p {
+    margin-bottom: 0;
+
     font-size: 1rem;
     line-height: 1.6;
 }
 
-.seccion-video {
-    background-color: #2C3E50;
-    padding: 60px 20px;
-    text-align: center;
-    color: black;
-}
 
-.seccion-video h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
+/* =========================
+   FOOTER
+========================= */
 
-.seccion-video p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.boton-video {
-    display: inline-block;
-    padding: 12px 24px;
-    font-size: 1rem;
-    background-color: cornflowerblue;
-    color: black;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background 0.3s ease;
-}
-
-.boton-video:hover {
-    background-color: white;
-}
-
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    margin: 20px auto;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+.footer-pagina {
     width: 100%;
-    height: 100%;
-    border: 0;
-    border-radius: 12px;
-}
+    min-height: 22vh;
+    padding: 30px 10px;
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 15px;
 
-div div {
-    padding: 0;
+    background-color: #2C3E50;
+    color: #d6d6d6;
+
     text-align: center;
-    margin: 50px auto;
-    max-width: 800px;
+}
+
+.footer-pagina p,
+.footer-pagina ul {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.suscripcion-pre-titulo {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 0 15px;
+
+    font-size: 30px;
+    text-align: center;
+}
+
+.pie-pagina-menu {
+    width: 100%;
+    max-width: 1200px;
+    margin: 10px auto 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    list-style: none;
+}
+
+.pie-pagina_link {
+    color: #d6d6d6;
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+.pie-pagina_link:hover {
+    color: #ffffff;
+}
+
+.img_facebook {
+    width: 83px;
+    height: 83px;
+
+    object-fit: contain;
+}
+
+.img_instagram {
+    width: 70px;
+    height: 70px;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   DISEÑO RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    /* Header */
+
+    .header-principal {
+        min-height: auto;
+        padding: 15px;
+
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .header-principal nav {
+        width: 100%;
+
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .header-principal nav:first-of-type {
+        margin-right: 0;
+    }
+
+    .link-navegacion {
+        font-size: 16px;
+    }
+
+
+    /* Banner */
+
+    .banner-principal {
+        padding: 30px 15px;
+    }
+
+    .logo1 {
+        width: 150px;
+        height: 150px;
+    }
+
+    .baner-principal-titulo {
+        font-size: 36px;
+    }
+
+    .recomendaciones_día {
+        margin-top: 35px;
+        font-size: 17px;
+    }
+
+
+    /* Libros */
+
+    .seccion-informativa h2,
+    .servicios h2,
+    .seccion-video h2,
+    .ayuda h2 {
+        font-size: 2rem;
+    }
+
+    .logo-container {
+        padding: 15px;
+
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .libro-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .libro-card img {
+        width: 160px;
+    }
+
+
+    /* Servicios */
+
+    .contenedor-servicios {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .servicio {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    /* Formulario */
+
+    .contacto,
+    .servicios,
+    .seccion-video,
+    .ayuda {
+        padding: 40px 15px;
+    }
+
+
+    /* Ayuda */
+
+    .preguntas-frecuentes {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Footer */
+
+    .suscripcion-pre-titulo {
+        font-size: 24px;
+    }
+
+    .pie-pagina-menu {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+
+/* =========================
+   CELULARES PEQUEÑOS
+========================= */
+
+@media (max-width: 480px) {
+
+    .baner-principal-titulo {
+        font-size: 30px;
+    }
+
+    .banner-principal_boton {
+        width: 100%;
+        padding: 12px 18px;
+    }
+
+    .recomendaciones_día {
+        font-size: 16px;
+    }
+
+    .link-navegacion {
+        font-size: 14px;
+    }
+
+    .logo-container {
+        padding: 10px;
+    }
+
+    .libro-card {
+        padding: 15px;
+    }
+
+    .formulario-contacto input,
+    .formulario-contacto select,
+    .formulario-contacto textarea {
+        font-size: 16px;
+    }
 }
 
