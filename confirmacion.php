@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/includes/bootstrap.php';
 
 // Inicializamos las variables para evitar warnings o variables no definidas.
 $nombre = "";
@@ -19,11 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Verificamos que todos los campos hayan sido enviados.
     if (
-        isset($_POST["nombre"]) &&
-        isset($_POST["apellido"]) &&
-        isset($_POST["correo"]) &&
-        isset($_POST["motivo"]) &&
-        isset($_POST["mensaje"])
+        isset($_POST["nombre"]) && is_string($_POST["nombre"]) &&
+        isset($_POST["apellido"]) && is_string($_POST["apellido"]) &&
+        isset($_POST["correo"]) && is_string($_POST["correo"]) &&
+        isset($_POST["motivo"]) && is_string($_POST["motivo"]) &&
+        isset($_POST["mensaje"]) && is_string($_POST["mensaje"])
     ) {
 
         /*
@@ -186,11 +187,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </h1>
 
                     <p>
-                        Tu consulta fue registrada correctamente.
+                        El formulario fue procesado correctamente. No se envió un correo automáticamente.
                     </p>
 
                     <p>
-                        Te responderemos a la dirección:
+                        La dirección que ingresaste fue:
                         <strong><?= $correo ?></strong>
                     </p>
 

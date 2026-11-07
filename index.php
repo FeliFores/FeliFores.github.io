@@ -1,56 +1,49 @@
 <?php
+require_once __DIR__ . '/includes/bootstrap.php';
+require_once __DIR__ . '/includes/conexion.php';
 
-$libros = [
-    [
-        "titulo" => "Coraline",
-        "genero" => "Aventura",
-        "descripcion" => "Una historia de aventura y fantasía en la que Coraline descubre un mundo alternativo.",
-        "imagen" => "imagenes/Caroline.jpg",
-        "enlace" => "https://docs.google.com/file/d/0B_Q4k6k8MyYJbkFoLVdlWTJ0bzA/view?resourcekey=0-ReugSdUUQH0747n74-_xDg",
-        "destacado" => false
-    ],
-    [
-        "titulo" => "Frankenstein",
-        "genero" => "Ciencia Ficción",
-        "descripcion" => "La historia de un científico que da vida a una criatura creada a partir de distintos cuerpos.",
-        "imagen" => "imagenes/frankenstein-9781982146160_xlg.jpg",
-        "enlace" => "https://drive.google.com/file/d/0B8Bcptq_5FyXamtia1VwQ3hxNGM/view?resourcekey=0-iM1c9DHUqbsCZUHsIbO9zg",
-        "destacado" => false
-    ],
-    [
-        "titulo" => "Otelo",
-        "genero" => "Tragedia",
-        "descripcion" => "Una tragedia de William Shakespeare atravesada por los celos, la manipulación y la traición.",
-        "imagen" => "imagenes/otelo_classicos_14x21_9788525429926_hd.jpg",
-        "enlace" => "https://drive.google.com/file/d/0B1JjW_N9HUizLVdVN28wZjR3UWs/view?resourcekey=0-kLVCrs1FoVmyA7CVpoLinA",
-        "destacado" => false
-    ],
-    [
-        "titulo" => "It",
-        "genero" => "Terror",
-        "descripcion" => "Una novela de terror en la que un grupo de amigos se enfrenta a una presencia aterradora.",
-        "imagen" => "imagenes/terror.jpeg",
-        "enlace" => "https://docs.google.com/file/d/0B3N8jtudSydeYWgwbzJxOXZYS1U/edit?resourcekey=0-G7ZxKLWMipMM8vqegxBU3Q",
-        "destacado" => true
-    ],
-    [
-        "titulo" => "Romeo y Julieta",
-        "genero" => "Romance",
-        "descripcion" => "La historia de dos jóvenes enamorados pertenecientes a familias enfrentadas.",
-        "imagen" => "imagenes/Rome y Julieta.webp",
-        "enlace" => "https://ia800305.us.archive.org/29/items/romeo-y-julieta-texto-completo/Romeo%20y%20Julieta%20-%20William%20Shakespeare.pdf",
-        "destacado" => false
-    ],
-    [
-        "titulo" => "Los Escorpiones",
-        "genero" => "Ficción",
-        "descripcion" => "Una propuesta de ficción contemporánea incorporada al catálogo de FF_LIBROS.",
-        "imagen" => "imagenes/Los-Escorpiones-i7n24218684.jpg",
-        "enlace" => "https://www.casadellibro.com/libro-los-escorpiones/9788426418784/14461451",
-        "destacado" => false
-    ]
-];
+// Los filtros provienen de GET; el género elegido se recuerda en una cookie.
+$busqueda = is_string($_GET['buscar'] ?? null) ? trim($_GET['buscar']) : '';
+$busqueda = substr($busqueda, 0, 100);
+$generoRecibido = array_key_exists('genero', $_GET) ? $_GET['genero'] : ($_COOKIE['genero_preferido'] ?? '');
+$genero = is_string($generoRecibido) ? trim($generoRecibido) : '';
+$genero = substr($genero, 0, 80);
 
+$generos = [];
+$resultadoGeneros = mysqli_query($conexion, 'SELECT DISTINCT genero FROM libros ORDER BY genero');
+while ($filaGenero = mysqli_fetch_assoc($resultadoGeneros)) {
+    $generos[] = $filaGenero['genero'];
+}
+if ($genero !== '' && !in_array($genero, $generos, true)) {
+    $genero = '';
+}
+if (array_key_exists('genero', $_GET)) {
+    setcookie('genero_preferido', $genero, [
+        'expires' => time() + 60 * 60 * 24 * 30,
+        'path' => '/',
+        'secure' => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off',
+        'httponly' => true,
+        'samesite' => 'Lax',
+    ]);
+}
+
+// Prepared statements para todos los filtros recibidos del navegador.
+$sql = "SELECT id, titulo, genero, descripcion, imagen, enlace, destacado
+        FROM libros
+        WHERE (? = '' OR genero = ?)
+          AND (? = '' OR titulo LIKE ? OR descripcion LIKE ?)
+        ORDER BY destacado DESC, id DESC";
+$sentencia = mysqli_prepare($conexion, $sql);
+$buscarComo = '%' . $busqueda . '%';
+mysqli_stmt_bind_param($sentencia, 'sssss', $genero, $genero, $busqueda, $buscarComo, $buscarComo);
+mysqli_stmt_execute($sentencia);
+$resultadoLibros = mysqli_stmt_get_result($sentencia);
+$libros = [];
+while ($libro = mysqli_fetch_assoc($resultadoLibros)) {
+    $libros[] = $libro;
+}
+mysqli_stmt_close($sentencia);
+$flash = leer_flash();
 ?>
 
 <!DOCTYPE html>
@@ -121,7 +114,7 @@ $libros = [
             </h1>
 
              <a
-                href="404.html"
+                href="index.php#novedades"
                 class="banner-principal_boton"
                >
                      Nuestra Recomendación del día
@@ -146,6 +139,31 @@ $libros = [
         >
 
             <h2>Novedades</h2>
+
+            <?php if ($flash): ?>
+                <p role="status" class="aviso aviso-<?= e($flash['tipo']) ?>"><?= e($flash['texto']) ?></p>
+            <?php endif; ?>
+
+            <form class="filtros-libros" action="index.php" method="GET">
+                <div>
+                    <label for="buscar">Buscar por título o descripción</label>
+                    <input type="search" id="buscar" name="buscar" value="<?= e($busqueda) ?>" maxlength="100" placeholder="Ej.: Coraline">
+                </div>
+                <div>
+                    <label for="genero">Género</label>
+                    <select id="genero" name="genero">
+                        <option value="">Todos los géneros</option>
+                        <?php foreach ($generos as $opcionGenero): ?>
+                            <option value="<?= e($opcionGenero) ?>" <?= $genero === $opcionGenero ? 'selected' : '' ?>><?= e($opcionGenero) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <button type="submit">Filtrar libros</button>
+                <a href="index.php?genero=#novedades" class="limpiar-filtros">Limpiar filtros</a>
+            </form>
+            <?php if (!$libros): ?>
+                <p>No encontramos libros con esos filtros.</p>
+            <?php endif; ?>
 
             <div class="logo-container">
 

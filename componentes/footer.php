@@ -19,7 +19,7 @@
             >
                 <img
                     class="img_instagram"
-                    src="imagenes/Instagram-Logo-Transparent.webp"
+                    src="<?= e($baseUrl ?? '') ?>imagenes/Instagram-Logo-Transparent.webp"
                     alt="Logo de Instagram"
                 >
             </a>
@@ -35,7 +35,7 @@
             >
                 <img
                     class="img_facebook"
-                    src="imagenes/hd-logo-facebook-png-transparent-background-30.png"
+                    src="<?= e($baseUrl ?? '') ?>imagenes/hd-logo-facebook-png-transparent-background-30.png"
                     alt="Logo de Facebook"
                 >
             </a>

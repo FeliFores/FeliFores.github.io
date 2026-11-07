@@ -797,3 +797,35 @@ img {
     }
 }
 
+
+/* Segundo parcial: filtros, panel y avisos */
+.filtros-libros {max-width:1100px;margin:0 auto 26px;display:flex;flex-wrap:wrap;gap:12px;align-items:end;justify-content:center;text-align:left;}
+.filtros-libros > div {display:flex;flex-direction:column;gap:6px;flex:1 1 210px;max-width:400px;}
+.filtros-libros label {font-size:.9rem;font-weight:600;}
+.filtros-libros input,.filtros-libros select,.panel-form input:not([type="checkbox"]),.panel-form select,.panel-form textarea {width:100%;padding:11px;border:1px solid #a8b4c0;border-radius:8px;font:inherit;background:#fff;color:#2c3e50;}
+.filtros-libros button,.panel-boton {display:inline-block;padding:12px 18px;border:0;border-radius:8px;background:#2c3e50;color:white;font:inherit;text-decoration:none;cursor:pointer;}
+.filtros-libros button:hover,.panel-boton:hover {background:#405b77;}
+.limpiar-filtros {align-self:center;color:#2c3e50;}
+.panel-main {max-width:1120px;margin:30px auto 55px;padding:0 20px;width:100%;}
+.panel-main h1 {margin-bottom:18px;}
+.panel-main p {line-height:1.6;}
+.panel-form {display:grid;gap:14px;max-width:680px;}
+.panel-form label {display:block;font-weight:600;margin-bottom:6px;}
+.panel-form textarea {min-height:130px;resize:vertical;}
+.panel-form small {display:block;margin-top:6px;}
+.panel-actions {display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+.panel-table-scroll {overflow-x:auto;}
+.panel-table {border-collapse:collapse;width:100%;background:white;}
+.panel-table th,.panel-table td {border-bottom:1px solid #ddd;padding:12px;text-align:left;vertical-align:middle;}
+.panel-table th {background:#e9eef4;}
+.panel-table form {display:inline;}
+.panel-table .panel-boton {padding:7px 12px;}
+.panel-boton-peligro {background:#a92b35;}
+.aviso {padding:14px 16px;border-radius:8px;margin:16px 0;border:1px solid #bcc9d5;background:#edf2f8;}
+.aviso-exito {border-color:#7cab95;background:#e6f4ec;}
+.aviso-error {border-color:#d0a4a4;background:#fff0f0;}
+.aviso-info {border-color:#a5bdcd;background:#eef5f9;}
+.panel-encabezado {display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+@media (max-width:650px) {.panel-table th,.panel-table td{padding:7px;font-size:.85rem}.filtros-libros{align-items:stretch}.filtros-libros button{width:100%}.panel-main{padding:0 14px}}
+
+.panel-form input[type="checkbox"] {width:auto;accent-color:#2c3e50;}

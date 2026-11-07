@@ -1,0 +1,4 @@
+Repositorio de GitHub: https://github.com/FeliFores/FeliFores.github.io
+(VERIFICAR que aquí esté subida la versión del segundo parcial con historial de commits.)
+
+Despliegue de InfinityFree: PENDIENTE (agregar la URL real cuando esté operativo).
