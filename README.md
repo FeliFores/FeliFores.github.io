@@ -18,7 +18,7 @@ Sitio del Primer Parcial conservado (presentación, libro-cards, servicios, vide
 2. Abrir XAMPP y encender **Apache** y **MySQL**.
 3. Abrir `http://localhost/phpmyadmin/`. Crear una base nueva llamada **`ff_libros`** con UTF8MB4.
 4. Seleccionar esa base e ir a **Importar**, elegir `database/database.sql` y ejecutar. Se crearán las tablas y se importarán los **8 libros** y el administrador.
-5. En `includes/config.local.php` comprobar host `localhost`, usuario `root`, contraseña vacía y base `ff_libros` (configuración estándar de XAMPP; adaptala si tu instalación usa otra).
+5. Copiar `includes/config.ejemplo.php` como `includes/config.local.php` y configurar host `localhost`, usuario `root`, contraseña local y base `ff_libros` según XAMPP. El archivo privado no se incluye en GitHub ni en el ZIP.
 6. Abrir **`http://localhost/FeliFores_WebII/index.php`**. Allí deberían aparecer los 8 libros, con búsqueda por título y filtro de género.
 7. Entrar a **`http://localhost/FeliFores_WebII/admin/login.php`**. Usuario: `admin`. La **contraseña inicial no está en este proyecto**; se compartió aparte para no publicarla. El panel te obligará a cambiarla al entrar por primera vez.
 8. Probar: crear libro, editar título, eliminar libro de prueba, navegar y verificar que el filtro y la cookie se conservan.
@@ -31,7 +31,7 @@ Sitio del Primer Parcial conservado (presentación, libro-cards, servicios, vide
 - Subí los archivos web al `htdocs` de InfinityFree (si la web está en la raíz, subí el contenido de `FeliFores_WebII`, no necesariamente la carpeta). **Subí también `includes/config.local.php` de forma privada**, editándolo con el host, nombre de base, usuario, contraseña y puerto indicados por InfinityFree. No publiques nunca esas credenciales en GitHub.
 - Entrá al panel y cambiá la contraseña inicial **en ambos entornos** si usás bases de datos diferentes.
 - Verificá que listado, búsqueda, filtros, login, CRUD, imágenes y formularios funcionen en el dominio público.
-- Completá `enlaces.txt` con las URL reales de GitHub e InfinityFree, y entregá el ZIP con el nombre pedido por la consigna.
+- `enlaces.txt` contiene las URL reales de GitHub e InfinityFree; entregá el ZIP con el nombre pedido por la consigna.
 
 ## Seguridad / notas
 
@@ -49,4 +49,11 @@ Sitio del Primer Parcial conservado (presentación, libro-cards, servicios, vide
 - `includes/conexion.php`: MySQLi centralizado.
 - `includes/config.local.php`: configuración local de desarrollo (no Git).
 - `database/database.sql`: tablas y registros de prueba.
-- `enlaces.txt`: enlaces de la entrega (falta completar InfinityFree).
+- `enlaces.txt`: enlaces definitivos del repositorio y del sitio en InfinityFree.
+
+## Enlaces del segundo parcial
+
+- **Repositorio**: https://github.com/FeliFores/FeliFores.github.io
+- **Sitio online (PHP + MySQL)**: https://ff-libros.42web.io/
+- **Panel de administración**: https://ff-libros.42web.io/admin/login.php
+- **Entrega**: `26-ACN2BV-FORESTELLO-FELIPE-PARCIAL2.ZIP` (incluye `database/database.sql`, sin credenciales privadas de MySQL).
