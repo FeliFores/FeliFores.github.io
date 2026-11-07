@@ -1,4 +1,11 @@
-Repositorio de GitHub: https://github.com/FeliFores/FeliFores.github.io
-(VERIFICAR que aquí esté subida la versión del segundo parcial con historial de commits.)
+SEGUNDO PARCIAL — PROGRAMACIÓN WEB II
+Proyecto: FF_Libros
 
-Despliegue de InfinityFree: PENDIENTE (agregar la URL real cuando esté operativo).
+Repositorio GitHub (historial de commits):
+https://github.com/FeliFores/FeliFores.github.io
+
+Sitio desplegado en InfinityFree (PHP + MySQL):
+https://ff-libros.42web.io/
+
+Acceso al panel de administración:
+https://ff-libros.42web.io/admin/login.php
